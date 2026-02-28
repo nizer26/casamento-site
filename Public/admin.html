@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Convidados Confirmados</title>
+    <link rel="stylesheet" href="styleadm.css">
+</head>
+<body>
+    <header>
+        <h1>Painel Admin - Convidados Confirmados</h1>
+    </header>
+
+    <!-- Login simples -->
+    <section id="login">
+        <label for="senha">Digite a senha do admin:</label>
+        <input type="password" id="senha" placeholder="Senha">
+        <button id="btn-senha">Entrar</button>
+    </section>
+
+    <!-- Painel visível apenas após senha correta -->
+    <section id="painel" style="display:none;">
+        <h2>Total de confirmados: <span id="total">0</span></h2>
+
+        <!-- Busca por nome -->
+        <input type="text" id="busca" placeholder="Buscar por nome">
+        <button id="btn-buscar">Buscar</button>
+
+        <!-- Tabela de convidados confirmados -->
+        <table border="1" id="tabela-convidados">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas serão preenchidas via JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        const senhaCorreta = "1234"; // altere para sua senha
+        const painel = document.getElementById("painel");
+        const btnSenha = document.getElementById("btn-senha");
+
+        btnSenha.addEventListener("click", () => {
+            const inputSenha = document.getElementById("senha").value;
+            if(inputSenha === senhaCorreta){
+                painel.style.display = "block";
+                carregarConvidados();
+                document.getElementById("login").style.display = "none";
+            } else {
+                alert("Senha incorreta!");
+            }
+        });
+
+        async function carregarConvidados(nomeFiltro = "") {
+            const url = nomeFiltro ? `/admin/convidados?nome=${nomeFiltro}` : "/admin/convidados";
+            const response = await fetch(url);
+            const convidados = await response.json();
+
+            const tbody = document.querySelector("#tabela-convidados tbody");
+            tbody.innerHTML = "";
+
+            convidados.forEach(c => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${c.id}</td>
+                    <td>${c.nome}</td>
+                    <td>${c.email}</td>
+                    <td>
+                        <button onclick="remover(${c.id})">Remover</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById("total").innerText = convidados.length;
+        }
+
+        document.getElementById("btn-buscar").addEventListener("click", () => {
+            const filtro = document.getElementById("busca").value;
+            carregarConvidados(filtro);
+        });
+
+        async function remover(id){
+            if(confirm("Deseja realmente remover este convidado?")){
+                await fetch(`/admin/convidados/${id}`, { method: "DELETE" });
+                carregarConvidados();
+            }
+        }
+    </script>
+</body>
+</html>
