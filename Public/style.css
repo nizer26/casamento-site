@@ -8,22 +8,16 @@ body {
 
 header {
     background: #7fffd4;
-    padding: 40px 20px;
+    padding: 20px 10px;
 }
 
 header h1 {
-    font-size: 3em;
-    margin: 0;
+    font-size: 35px;
+    margin-top: 10px;
 }
-header h2 {
-    color: #000000;
-}
-header h3 {
-    color: #000000;
-}
-
 header p {
-    font-size: 1.5em;
+    font-size: 20px;
+    margin-top: -15px;
 }
 
 #contador {
@@ -32,11 +26,50 @@ header p {
     color: #a44a4a;
 }
 
-.foto img {
-    width: 80%;
-    max-width: 500px;
-    border-radius: 15px;
-    margin: 20px 0;
+/* Carrossel de fotos */
+.carousel {
+    position: relative;
+    max-width: 1200px;
+    width: 75%;
+    height: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.slides img {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+    object-position: center;
+    margin-left: 200px; 
+}
+
+.slides img.active {
+    display: block;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carousel button.prev {
+    left: 10px;
+}
+
+.carousel button.next {
+    right: 10px;
 }
 
 section {
@@ -47,10 +80,11 @@ section {
     background-color: #7fffd4;
 }
 
-.h2{
+.h2 {
     color: #000000;
 }
 
+/* Formulário de confirmação */
 .confirmacao form {
     display: flex;
     flex-direction: column;
@@ -58,26 +92,132 @@ section {
 }
 
 .confirmacao input {
-    padding: 10px;
-    margin: 10px;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px 15px;
+    margin: 10px 0;
+    width: 300px;
+    border: 2px solid #7fffd4;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.confirmacao input:focus {
+    border-color: #7fffd4;
+    box-shadow: 0 0 10px rgba(127,255,212,0.5);
 }
 
 .confirmacao button {
-    padding: 10px 20px;
-    background-color: #a44a4a;
+    padding: 12px 30px;
+    background-color: #7fffd4;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(164,74,74,0.4);
 }
 
 .confirmacao button:hover {
-    background-color: #7c3232;
+    background-color: #7fffd4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124,50,50,0.5);
 }
 
+/* Seção de presentes */
+.presentes {
+    background-color: #f7f7f7;
+    padding: 30px 20px;
+    margin: 30px auto;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    color: #000;
+}
+
+.presentes h2 {
+    color: #000;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+#lista-presentes {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-presentes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    border: 2px solid #7fffd4;
+    transition: all 0.3s ease;
+}
+
+/*#lista-presentes li:hover {
+    background-color: green;
+    color: #000;
+}*/
+
+#lista-presentes li.selecionado {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#lista-presentes li a.escolher {
+    text-decoration: none;
+    color: #7fffd4;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid #7fffd4;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+#lista-presentes li a.escolher:hover {
+    background-color: #7fffd4;
+    color: white;
+}
+/* Links da lista de presentes */
+.links-presentes {
+    display: flex;
+    gap: 10px; /* distância entre os links */
+}
+
+.links-presentes a {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a.escolher {
+    color: #7fffd4;
+    border: 2px solid #7fffd4;
+}
+
+a.escolher:hover {
+    background-color: #7fffd4;
+    color: white;
+}
+
+a.ver-produto {
+    color: #7fffd4;
+    border: 2px solid #7fffd4;
+}
+
+a.ver-produto:hover {
+    background-color: #7fffd4;
+    color: white;
+}
 footer {
     background: #7fffd4;
     padding: 15px;

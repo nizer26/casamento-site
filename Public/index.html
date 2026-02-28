@@ -9,14 +9,66 @@
 
     <header>
         <h1>Yandra & Matheus</h1>
-        <p>Cerimonia de Casamento!</p>
+        <p>Cerimônia de Casamento!</p>
         <h2 id="contador"></h2>
     </header>
 
+    <!-- Carrossel de fotos -->
     <section class="foto">
-        <img src="imagens/casal.jpg" alt="Foto do casal">
+        <div class="carousel">
+            <div class="slides">
+                <img src="imagens/casal.jpg" alt="Foto 1" class="active">
+                <img src="imagens/casal2.jpg" alt="Foto 2">
+                <img src="imagens/casal3.jpg" alt="Foto 3">
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
     </section>
 
+    <!-- Seção de presentes -->
+   <section class="presentes">
+    <h2>Ideias de presente</h2>
+    <ul id="lista-presentes">
+        <li data-id="1">
+            Conjunto de taças de vinho
+            <div class="links-presentes">
+                <!--<a href="#" class="escolher">Escolher</a>-->
+                <a href="https://www.mercadolivre.com.br/conjunto-6-tacas-de-vinho-de-vidro-gourmet-350ml-lyor/p/MLB52434984?pdp_filters=item_id%3AMLB5546750864&from=gshop&matt_tool=44747869&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22603531439&matt_ad_group_id=183641039649&matt_match_type=&matt_network=g&matt_device=c&matt_creative=758138322197&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735128761&matt_product_id=MLB52434984-product&matt_product_partition_id=2424646252522&matt_target_id=pla-2424646252522&cq_src=google_ads&cq_cmp=22603531439&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=22603531439&gbraid=0AAAAAD93qcA6wmzOzJLYTqEfLpoDYlXoo&gclid=Cj0KCQiAwYrNBhDcARIsAGo3u33WP8eW0T5YOaiPBmdovu9c1CZqQeC3Yp3k-VPJNT5eO0bc9JEp_M4aAs5WEALw_wcB" target="_blank" class="ver-produto">Ver produto</a>
+            </div>
+        </li>
+        <li data-id="2">
+            Jogo de pratos
+            <div class="links-presentes">
+                <!--<a href="#" class="escolher">Escolher</a>-->
+                <a href="https://www.exemplo.com/pratos" target="_blank" class="ver-produto">Ver produto</a>
+            </div>
+        </li>
+        <li data-id="3">
+            Aparelho de fondue
+            <div class="links-presentes">
+                <!--a href="#" class="escolher">Escolher</a>-->
+                <a href="https://www.exemplo.com/fondue" target="_blank" class="ver-produto">Ver produto</a>
+            </div>
+        </li>
+        <li data-id="4">
+            Toalhas de banho
+            <div class="links-presentes">
+                <!--<a href="#" class="escolher">Escolher</a>-->
+                <a href="https://www.exemplo.com/toalhas" target="_blank" class="ver-produto">Ver produto</a>
+            </div>
+        </li>
+        <li data-id="5">
+            Cafeteira elétrica
+            <div class="links-presentes">
+                <!--<a href="#" class="escolher">Escolher</a>-->
+                <a href="https://www.exemplo.com/cafeteira" target="_blank" class="ver-produto">Ver produto</a>
+            </div>
+        </li>
+    </ul>
+    <p id="mensagem-presente"></p>
+</section>
+    <!-- Detalhes da cerimônia -->
     <section class="detalhes">
         <h2>Detalhes da Cerimônia</h2>
         <p><strong>Data:</strong> 15 de Outubro de 2026</p>
@@ -24,6 +76,7 @@
         <p><strong>Horário:</strong> 17h</p>
     </section>
 
+    <!-- Formulário de confirmação -->
     <section class="confirmacao">
         <div class="h2">
             <h2>Confirme sua presença</h2>
@@ -35,10 +88,12 @@
         </form>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>Com amor, Yandra & Matheus 💖</p>
     </footer>
 
+    <!-- Script JS -->
     <script src="script.js"></script>
 </body>
 </html>
