@@ -1,17 +1,13 @@
 {
   "name": "site-casamento",
   "version": "1.0.0",
-  "description": "Site de casamento com confirmação e lista de presentes",
+  "description": "Site de casamento",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "Yandra & Matheus",
-  "license": "ISC",
-  "type": "commonjs",
   "engines": {
-    "node": ">=18"
+    "node": "18.x"
   },
   "dependencies": {
     "express": "^4.18.2",
